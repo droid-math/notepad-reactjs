@@ -1,23 +1,26 @@
-function LeftNavBar({}) {
+
+function LeftNavBar({notes, onAdd, onDelete}) {
     return (
         <div className='leftnav'>
             <div className='leftnav-header'>
                 <p>Suas anotações</p>
-                <button className="leftnav-add"><i className="fa-solid fa-circle-plus"></i></button>
+                <button onClick={onAdd} className="leftnav-add"><i className="fa-solid fa-circle-plus"></i></button>
             </div>
             <div className='leftnav-notes'>
-                <div className="leftnav-notes-card">
+                {notes.map((note) => (
+                    <div className="leftnav-notes-card">
                     <div className="leftnav-notes-title">
-                        <p>Title</p>
-                        <button className="leftnav-delete">Deletar</button>
+                        <p>{note.title}</p>
+                        <button onClick={() => onDelete(note.id)} className="leftnav-delete">Deletar</button>
                     </div>
                     <div className="leftnav-notes-preview">
-                        <p>Preview</p>
+                        <p>{note.bodyText && note.body.substr(0, 100 + '...')}</p>
                     </div>
                     <div className="leftnav-notes-data">
-                        Last Modifed [date]
+                        Criado em {note.createDate}
                     </div>
                 </div>
+                ))}
             </div>
         </div>
     )
