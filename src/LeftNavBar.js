@@ -1,5 +1,5 @@
 
-function LeftNavBar({notes, onAdd, onDelete}) {
+function LeftNavBar({notes, onAdd, onDelete, activeNote, setActiveNote}) {
     return (
         <div className='leftnav'>
             <div className='leftnav-header'>
@@ -8,10 +8,10 @@ function LeftNavBar({notes, onAdd, onDelete}) {
             </div>
             <div className='leftnav-notes'>
                 {notes.map((note) => (
-                    <div className="leftnav-notes-card">
+                    <div className={`leftnav-notes-card ${note.noteId === activeNote ? 'note-active' : ''}`} onClick={() => setActiveNote(note.noteId)}>
                     <div className="leftnav-notes-title">
-                        <p>{note.title}</p>
-                        <button onClick={() => onDelete(note.id)} className="leftnav-delete">Deletar</button>
+                        <p>{note.title} - {note.noteId}</p>
+                        <button onClick={() => onDelete(note.noteId)} className="leftnav-delete">Deletar</button>
                     </div>
                     <div className="leftnav-notes-preview">
                         <p>{note.bodyText && note.body.substr(0, 100 + '...')}</p>

@@ -56,11 +56,11 @@ body,
         padding: 15px;
         border-top: 1px solid rgba(#bebebe, 40%);
         background: rgba(#bebebe, 10%);
-        .main-preview-title{
+        .main-preview-title {
             font-size: 36px;
             font-weight: 700;
         }
-        .main-preview-text{
+        .main-preview-text {
             padding-top: 8px;
         }
     }
@@ -107,11 +107,12 @@ body,
         // overflow-y: scroll;
         .leftnav-notes-card {
             border-radius: 8px;
-            border: 0.5px solid rgba(#bebebe, 50%);
+            border: 0.5px solid rgba(#bebebe, 30%);
             padding: 20px;
             margin: 10px;
             cursor: pointer;
-            transition: border 0.5s ease-in-out, background-color 0.4s ease-in-out;
+            transition: border 0.5s ease-in-out,
+                background-color 0.4s ease-in-out;
             .leftnav-notes-title {
                 display: flex;
                 justify-content: space-between;
@@ -128,6 +129,13 @@ body,
         .leftnav-notes-card:hover {
             border: none;
             background: rgba(#bebebe, 50%);
+        }
+        .note-active {
+            background-color: rgba(#aca9bb, 20%);
+            -webkit-box-shadow: 1px 1px 18px 2px rgba(0, 0, 0, 0.40);
+            -moz-box-shadow: 1px 1px 18px 2px rgba(0, 0, 0, 0.40);
+            box-shadow: 1px 1px 18px 2px rgba(0, 0, 0, 0.40);
+            border: none;
         }
     }
 }
